@@ -1,0 +1,29 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-weight: bold;
+    border: 1px solid #5a5255;
+    text-align: center;
+    padding: 8px;
+}
+
+.td-number {
+  border: 1px solid	#5a5255;
+  text-align: center;
+  width: 8%;
+  padding: 8px;
+}
+
+.td-name {
+  border: 1px solid	#5a5255;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color:  #76B19B;
+}
