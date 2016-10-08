@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from search.models import MyModel
 
 class ModelList(ListView):
@@ -7,3 +7,7 @@ class ModelList(ListView):
     context_object_name = "MyModel"
     template_name = "home.html"
     paginate_by = 100
+
+class ModelDetail(DetailView):
+    queryset = MyModel.objects.all()
+    template_name = "detail.html"

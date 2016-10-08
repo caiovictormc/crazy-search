@@ -14,10 +14,10 @@
           {% for mymodel in object_list %}
             <tr>
               <td class="td-number">
-                <a href="#">{{ mymodel.number }}</a>
+                <a href="{% url 'search:detail' mymodel.id %}">{{ mymodel.number }}</a>
               </td>
               <td class="td-name">
-                <a href="#">{{ mymodel.name }}</a>
+                <a href="{% url 'search:detail' mymodel.id %}">{{ mymodel.name }}</a>
               </td>
             </tr>
           {% endfor %}
@@ -29,7 +29,7 @@
     <div class="pagination">
       <span class="page-links">
         {% if page_obj.has_previous %}
-          <a href="/home?page={{ page_obj.previous_page_number }}">
+          <a href="/?page={{ page_obj.previous_page_number }}">
             <button  type="button" class="btn btn-default btn-lg">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             </button>
@@ -39,7 +39,7 @@
           Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
         </span>
         {% if page_obj.has_next %}
-          <a href="/home?page={{ page_obj.next_page_number }}">
+          <a href="/?page={{ page_obj.next_page_number }}">
             <button  type="button" class="btn btn-default btn-lg">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
