@@ -1,3 +1,16 @@
+/* NAVBAR
+****************/
+#header-logo {
+  font-family:Lucida Console;
+  font-weight: bold;
+  font-size:28px;
+  font-variant:small-caps;
+  color: #ae5a41;
+}
+
+/* TABLE
+********************/
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -26,4 +39,40 @@ th {
 
 tr:nth-child(even) {
     background-color:  #76B19B;
+}
+
+table tr td a {
+    color: black;
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+table tr td a:hover {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+table tr td a:visited {
+    text-decoration: none;
+    color: black;
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+/* PAGINATION
+******************/
+.pagination {
+    text-align: center;
+    width: 100%;
+}
+
+.pagination button:hover {
+  background-color: #ae5a41;
+  color: white;
 }

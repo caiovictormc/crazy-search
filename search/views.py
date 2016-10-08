@@ -6,3 +6,4 @@ class ModelList(ListView):
     model = MyModel
     context_object_name = "MyModel"
     template_name = "home.html"
+    paginate_by = 2
