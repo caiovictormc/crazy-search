@@ -77,6 +77,14 @@ table tr td a:visited {
   color: white;
 }
 
+/* BUTTON CREATE
+*******************8*/
+.button-create {
+  padding-top: 14px;
+  text-align: center;
+  width: 100%;
+}
+
 /* BUTTONS DETAIL
 ****************/
 .button-group {
@@ -86,4 +94,26 @@ table tr td a:visited {
 
 .button-group button {
   width: 130px;
+}
+
+/* BUTTONS DELETE
+****************/
+.panel-button-group {
+  text-align: center;
+  width: 100%;
+}
+
+.panel-button-group button {
+  width: 100px;
+}
+
+/* FORM
+****************/
+.form-create {
+  text-align: center;
+  width: 100%;
+}
+
+.form-create input {
+  line-height: 40px;
 }
