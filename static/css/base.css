@@ -76,3 +76,14 @@ table tr td a:visited {
   background-color: #ae5a41;
   color: white;
 }
+
+/* BUTTONS DETAIL
+****************/
+.button-group {
+    text-align: center;
+    width: 100%;
+}
+
+.button-group button {
+  width: 130px;
+}

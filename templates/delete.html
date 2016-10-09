@@ -1,31 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Detail{% endblock %}
+{% block title %}Delete{% endblock %}
 
 {% block content %}
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Model Detail</strong></h3>
+    <h3 class="panel-title"><strong>Model Delete</strong></h3>
   </div>
   <div class="panel-body">
-    <table>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-      </tr>
-          <tr>
-            <td class="td-number">
-              {{ mymodel.number }}
-            </td>
-            <td class="td-name">
-              {{ mymodel.name }}
-            </td>
-          </tr>
-    </table>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Attention:</span>
+      Delete
+    </div>
   </div>
 </div>
 <div class="button-group">
-      <a href="{% url 'search:delete' mymodel.id %}">
+      <a href="#">
         <button  type="button" class="btn btn-danger btn-lg">
           <span class="glyphicon glyphicon-trash" aria-hidden="true">
           Delete</span>

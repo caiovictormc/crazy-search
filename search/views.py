@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from search.models import MyModel
 
 class ModelList(ListView):
@@ -11,3 +11,7 @@ class ModelList(ListView):
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()
     template_name = "detail.html"
+
+class ModelDelete(DeleteView):
+    model = MyModel
+    template_name = "delete.html"
