@@ -77,12 +77,16 @@ table tr td a:visited {
   color: white;
 }
 
-/* BUTTON CREATE
+/* BUTTON CREATE AND SEARCH FIELD
 *******************8*/
-.button-create {
+.button-search {
   padding-top: 14px;
   text-align: center;
   width: 100%;
+}
+
+#new-model-button {
+  margin-top: 10px;
 }
 
 /* BUTTONS DETAIL

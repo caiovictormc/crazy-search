@@ -5,9 +5,17 @@
     <div class="panel-heading">
       <h3 class="panel-title"><strong>Model List</strong></h3>
     </div>
-    <div class="button-create">
+    <div class="button-search">
+      <form action="" method="post">
+          {% csrf_token %}
+          {{ forma }}
+          {{ forma.media }}
+          <button  type="submit" class="btn btn-primary btn-sm" value="Submit">
+            <span class="glyphicon glyphicon-search" aria-hidden="true">
+            Search</span>
+      </form>
       <a href="{% url 'search:create' %}">
-        <button type="button" class="btn btn-success">
+        <button id="new-model-button" type="button" class="btn btn-success">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
           New Model
         </button>
@@ -55,11 +63,6 @@
         {% endif %}
       </span>
     </div>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ forma }}
-        <input type="submit" />
-    </form>
   {% endif %}
 
 {% endblock %}

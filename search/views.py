@@ -2,9 +2,17 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from search.models import MyModel
 from search.forms import MyModelForm
+from dal import autocomplete
+
+
+class ModelAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = MyModel.objects.all()
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+        return qs
 
 class ModelList(ListView):
-
     model = MyModel
     context_object_name = "MyModel"
     template_name = "home.html"
@@ -13,6 +21,7 @@ class ModelList(ListView):
         context = super(ModelList, self).get_context_data(**kwargs)
         context['forma'] = MyModelForm
         return context
+
 
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()

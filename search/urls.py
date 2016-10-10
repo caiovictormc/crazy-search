@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from search.views import ModelList, ModelDetail, ModelDelete, ModelCreate, ModelUpdate
+from search.views import ModelList, ModelDetail, ModelDelete, ModelCreate, ModelUpdate, ModelAutocomplete
 
 app_name = 'search'
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/$', ModelDetail.as_view(), name='detail'),
     url(r'^delete/(?P<pk>[0-9]+)/$', ModelDelete.as_view(), name='delete'),
     url(r'^create/$', ModelCreate.as_view(), name='create'),
-    url(r'^update/(?P<pk>[0-9]+)/$', ModelUpdate.as_view(), name='update')
+    url(r'^update/(?P<pk>[0-9]+)/$', ModelUpdate.as_view(), name='update'),
+    url(r'^model-autocomplete$', ModelAutocomplete.as_view(), name='model-autocomplete'),
 ]
