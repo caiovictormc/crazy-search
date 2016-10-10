@@ -55,6 +55,11 @@
         {% endif %}
       </span>
     </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ forma }}
+        <input type="submit" />
+    </form>
   {% endif %}
 
 {% endblock %}

@@ -19,5 +19,4 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('', include('search.urls')),
-    url(r'^selectable/', include('selectable.urls')),
 ]

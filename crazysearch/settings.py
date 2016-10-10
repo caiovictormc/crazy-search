@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'selectable',
+    'dal',
+    'dal_select2',
     'search',
     'django.contrib.admin',
     'django.contrib.auth',

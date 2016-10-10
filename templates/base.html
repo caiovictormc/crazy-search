@@ -1,6 +1,4 @@
 {% load staticfiles %}
-{% load selectable_tags %}
-{% include_jquery_libs %}
 
 <!DOCTYPE html>
 <html>
@@ -17,14 +15,12 @@
         <div class="navbar-header">
           <a href="{% url 'search:home' %}" class="navbar-brand" id="header-logo">Crazy Search</a>
         </div>
-        <a href="#">
-          <button type="button" class="btn btn-primary navbar-btn navbar-right">Search Field (will become)</button>
-        </a>
-      </div>
+        <div>
+</div>
     </nav>
     {% block content %}
     {% endblock %}
-
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <script src = "{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   </body>
 </html>

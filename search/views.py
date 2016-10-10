@@ -4,11 +4,15 @@ from search.models import MyModel
 from search.forms import MyModelForm
 
 class ModelList(ListView):
-    forma = MyModelForm
+
     model = MyModel
     context_object_name = "MyModel"
     template_name = "home.html"
     paginate_by = 100
+    def get_context_data(self, **kwargs):
+        context = super(ModelList, self).get_context_data(**kwargs)
+        context['forma'] = MyModelForm
+        return context
 
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()
