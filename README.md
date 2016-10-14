@@ -2,10 +2,6 @@
 
 Model CRUD with a autocomplete search field
 
-![](http://i.imgur.com/sAf6ryb.png)
-
-![](http://i.imgur.com/RhREPJ7.png)
-
 ![](http://i.imgur.com/NCzLA1n.png)
 
 ![](http://i.imgur.com/n5SnCqA.png)
