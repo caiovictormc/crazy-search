@@ -22,6 +22,18 @@ class ModelList(ListView):
         context['forma'] = MyModelForm
         return context
 
+def modelresults(request):
+    if request.method == "GET":
+        form = MyModelForm(request.GET)
+        if form.is_valid():
+            #reason = dict(form.fields['reason'].choices)[reason]
+            pk = form['name'].value()
+            mymodel = MyModel.objects.get(pk=pk)
+            return render(request, 'results.html', {
+                'mymodel': mymodel
+            })
+    else:
+        return HttpResponse("fa")
 
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()

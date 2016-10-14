@@ -6,8 +6,7 @@
       <h3 class="panel-title"><strong>Model List</strong></h3>
     </div>
     <div class="button-search">
-      <form action="" method="post">
-          {% csrf_token %}
+      <form action="{% url 'search:results' %}" method="get">
           {{ forma }}
           {{ forma.media }}
           <button  type="submit" class="btn btn-primary btn-sm" value="Submit">
