@@ -1,8 +1,10 @@
+from dal import autocomplete
+
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
+
 from search.models import MyModel
 from search.forms import MyModelForm
-from dal import autocomplete
 
 
 class ModelAutocomplete(autocomplete.Select2QuerySetView):
@@ -21,19 +23,6 @@ class ModelList(ListView):
         context = super(ModelList, self).get_context_data(**kwargs)
         context['forma'] = MyModelForm
         return context
-
-def modelresults(request):
-    if request.method == "GET":
-        form = MyModelForm(request.GET)
-        if form.is_valid():
-            #reason = dict(form.fields['reason'].choices)[reason]
-            pk = form['name'].value()
-            mymodel = MyModel.objects.get(pk=pk)
-            return render(request, 'results.html', {
-                'mymodel': mymodel
-            })
-    else:
-        return HttpResponse("fa")
 
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()
@@ -55,3 +44,17 @@ class ModelUpdate(UpdateView):
     fields = ['name', 'number']
     template_name = "update.html"
     success_url = "/"
+
+
+def modelresults(request):
+    if request.method == "GET":
+        form = MyModelForm(request.GET)
+        if form.is_valid():
+            #reason = dict(form.fields['reason'].choices)[reason]
+            pk = form['name'].value()
+            mymodel = MyModel.objects.get(pk=pk)
+            return render(request, 'results.html', {
+                'mymodel': mymodel
+            })
+    else:
+        return HttpResponse("fa")
