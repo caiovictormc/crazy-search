@@ -1,6 +1,6 @@
 from dal import autocomplete
 
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 
 from search.models import MyModel
@@ -17,7 +17,7 @@ class ModelAutocomplete(autocomplete.Select2QuerySetView):
 class ModelList(ListView):
     model = MyModel
     context_object_name = "MyModel"
-    template_name = "home.html"
+    template_name = "search/home.html"
     paginate_by = 100
     def get_context_data(self, **kwargs):
         context = super(ModelList, self).get_context_data(**kwargs)
@@ -26,23 +26,23 @@ class ModelList(ListView):
 
 class ModelDetail(DetailView):
     queryset = MyModel.objects.all()
-    template_name = "detail.html"
+    template_name = "search/detail.html"
 
 class ModelDelete(DeleteView):
     model = MyModel
-    template_name = "delete.html"
+    template_name = "search/delete.html"
     success_url = "/"
 
 class ModelCreate(CreateView):
     model = MyModel
     fields = ['name', 'number']
-    template_name = "create.html"
+    template_name = "search/create.html"
     success_url = "/"
 
 class ModelUpdate(UpdateView):
     model = MyModel
     fields = ['name', 'number']
-    template_name = "update.html"
+    template_name = "search/update.html"
     success_url = "/"
 
 
@@ -52,9 +52,7 @@ def modelresults(request):
         if form.is_valid():
             #reason = dict(form.fields['reason'].choices)[reason]
             pk = form['name'].value()
-            mymodel = MyModel.objects.get(pk=pk)
-            return render(request, 'results.html', {
+            mymodel = get_object_or_404(MyModel, pk=pk)
+            return render(request, 'search/results.html', {
                 'mymodel': mymodel
             })
-    else:
-        return HttpResponse("fa")
