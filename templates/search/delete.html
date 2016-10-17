@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Model Delete</strong></h3>
+  </div>
+  <div class="panel-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Attention:</span>
+        Are you sure to delete this item? <br>
+        Name: {{ mymodel.name }} <br>
+        Number: {{ mymodel.number }}
+      </div>
+      <div class="panel-button-group">
+        <button  type="submit" class="btn btn-danger btn-sl" value="Submit">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true">
+          Yes</span>
+        </button>
+        <a href="{% url 'search:detail' mymodel.id %}">
+          <button  type="button" class="btn btn-primary btn-sl">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true">
+            No</span>
+          </button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

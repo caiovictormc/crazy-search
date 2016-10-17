@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Model Update</strong></h3>
+  </div>
+  <div class="panel-body">
+    <form class="form-create" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="panel-button-group">
+        <button  type="submit" class="btn btn-danger btn-sl" value="Submit">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+          Save</span>
+        </button>
+        <a href="{% url 'search:detail' mymodel.id %}">
+          <button  type="button" class="btn btn-primary btn-sl">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true">
+            Cancel</span>
+          </button>
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
